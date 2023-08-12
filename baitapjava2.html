@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 200vh;
+            background-color: rgb(211, 255, 255);
+            margin: 0;
+        }
+        .contain {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+        }
+        .contain::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            mix-blend-mode: screen;
+            background: linear-gradient(to top, rgb(211, 255, 255), transparent);
+        }
+        .contain img {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 1s;
+        }
+        #sun {
+            width: 180px;
+            height: 180px;
+        }
+        h1 {
+            padding: 20px 50px;
+            color: rgb(133, 134, 134);
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <img src="imgs/vd4.jpg" id="bg">
+        <img src="imgs/580b585b2edbce24c47b270f.png" id="sun">
+        <img src="imgs/vd3-removebg-preview.png" id="road">
+    </div>
+    <h1>ở đây sương khói mờ nhân ảnh...</h1>
+    <script>
+        let sun = document.querySelector("#sun");
+        let road = document.querySelector("#road");
+        let bg = document.querySelector("#bg");
+        window.addEventListener("scroll",show)
+        function show() {
+            let y = window.scrollY;
+            sun.style.left = y/3+"px";
+            bg.style.top = y+"px";
+        }
+    </script>
+</body>
+</html>
